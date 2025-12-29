@@ -8,6 +8,7 @@ import { ManageExpenses } from "./screen/ManageExpenses";
 import { RecentExpenses } from "./screen/RecentExpenses";
 import { AllExpenses } from "./screen/AllExpenses";
 import { GlobalStyle } from "./constants/style";
+import { IconButton } from "./components/ui/IconButton";
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -20,6 +21,14 @@ function ExpensesOverView() {
         headerTintColor: "white",
         tabBarStyle: { backgroundColor: GlobalStyle.colors.primary500 },
         tabBarActiveTintColor: GlobalStyle.colors.accent500,
+        headerRight: ({ taintColor }) => (
+          <IconButton
+            icon="add"
+            size={24}
+            color={taintColor}
+            onPress={() => {}}
+          />
+        ),
       }}
     >
       {/* recent screen */}
@@ -47,14 +56,16 @@ function ExpensesOverView() {
         }}
       />
       {/* manage expenses screen */}
-      <BottomTabs.Screen 
-      name="ManageExpenses" 
-      component={ManageExpenses}
-      options={{
-        title: "Manage Expenses",
-        tabBarLabel: "Manage Expenses",
-        tabBarIcon: ({color, size}) => (<FontAwesome6 name="money-bill-alt" size={size} color={color}/>)
-      }}
+      <BottomTabs.Screen
+        name="ManageExpenses"
+        component={ManageExpenses}
+        options={{
+          title: "Manage Expenses",
+          tabBarLabel: "Manage Expenses",
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome6 name="money-bill-alt" size={size} color={color} />
+          ),
+        }}
       />
     </BottomTabs.Navigator>
   );
