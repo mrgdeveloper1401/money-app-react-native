@@ -78,6 +78,7 @@ export default function App() {
     <>
       <StatusBar style="auto" />
       <NavigationContainer>
+        {/* manage expenses */}
         <Stack.Navigator>
           <Stack.Screen
             name="ExpensesOverView"
