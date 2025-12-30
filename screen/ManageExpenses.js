@@ -8,7 +8,8 @@ export function ManageExpenses({ route, navigation }) {
   };
 
   const cancelHandler = () => {
-    console.log("cancel");
+    // console.log("cancel");
+    navigation.goBack();
   };
 
   const confrimHandler = () => {
