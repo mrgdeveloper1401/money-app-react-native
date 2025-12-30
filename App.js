@@ -25,7 +25,7 @@ function ExpensesOverView() {
           <IconButton
             icon="add"
             size={24}
-            // color={tintColor}
+            color={tintColor}
             onPress={() => {
               navigation.navigate("ManageExpenses");
             }}
