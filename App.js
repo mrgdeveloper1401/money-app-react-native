@@ -9,6 +9,7 @@ import { RecentExpenses } from "./screen/RecentExpenses";
 import { AllExpenses } from "./screen/AllExpenses";
 import { GlobalStyle } from "./constants/style";
 import { IconButton } from "./components/ui/IconButton";
+import { ExpensesContextProvider } from "./state/state_context";
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -76,22 +77,24 @@ function ExpensesOverView() {
 export default function App() {
   return (
     <>
-      <StatusBar style="auto" />
-      <NavigationContainer>
-        {/* manage expenses */}
-        <Stack.Navigator>
-          <Stack.Screen
-            name="ExpensesOverView"
-            component={ExpensesOverView}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="ManageExpenses"
-            component={ManageExpenses}
-            options={{ presentation: "modal" }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <ExpensesContextProvider>
+        <StatusBar style="auto" />
+        <NavigationContainer>
+          {/* manage expenses */}
+          <Stack.Navigator>
+            <Stack.Screen
+              name="ExpensesOverView"
+              component={ExpensesOverView}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="ManageExpenses"
+              component={ManageExpenses}
+              options={{ presentation: "modal" }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ExpensesContextProvider>
     </>
   );
 }

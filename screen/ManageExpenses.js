@@ -12,6 +12,9 @@ export function ManageExpenses({ route, navigation }) {
     navigation.goBack();
   };
 
+  const deleteExpense = () => {
+    navigation.goBack();
+  };
   const confrimHandler = () => {
     console.log("confrim");
   };
